@@ -1,0 +1,2 @@
+# pic
+show album pics
