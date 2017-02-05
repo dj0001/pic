@@ -15,14 +15,15 @@ img {margin:1px}
 <img class="modal" alt='x'>
 
 <script>
-var pics=["DSC_0090.jpg","DSC_0091.jpg","DSC_0093.jpg"]
+var pics  //=["DSC_0090.jpg","DSC_0091.jpg","DSC_0093.jpg"]
+function call(picsa) {pics=picsa; pics.forEach(thumb)}
 
 var mod = document.getElementsByClassName("modal")[0], t
 //showi(pics[0])
 mod.onclick = function() {showi()}
 mod.oncontextmenu = function() {showi(pics[pics.indexOf(mod.getAttribute("src").slice(7))+1]); return false}
 
-pics.forEach(thumb)
+//pics.forEach(thumb)
 document.querySelector("body").onclick = function(ev){showi(ev.target.id)}
 
 function showi(that) {clearInterval(t)
