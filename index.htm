@@ -33,7 +33,7 @@ else mod.style.display = "none"
 
 function thumb(id) {
 var xhr=new XMLHttpRequest(); xhr.open("GET", "images/"+id, true); xhr.responseType="arraybuffer"; xhr.setRequestHeader("Range","bytes=0-65536")
-var tmp=document.createElement("img"); tmp.id=id; document.querySelector("body").appendChild(tmp)
+var tmp=document.createElement("img"); tmp.alt=tmp.id=id; document.querySelector("body").appendChild(tmp)
 
 xhr.onload=function(){var array=new Uint8Array(this.response), start, end, dtst;
 for (var i=2; i < array.length; i++) {if (array[i]==0xFF && array[i+1]==0xD8 || array[i]==0x89 && array[i+1]==0x50) {start=i;break}; if(!dtst && array[i]==58) dtst=i}; end=array.length-1
@@ -42,7 +42,7 @@ document.getElementById(id).src=window.URL.createObjectURL(blob)}
  }; xhr.send() 
 }
 
-/*
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
@@ -54,8 +54,9 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
-*/
+
 </script>
 <script src="images/pics.jsonp"></script>
+<noscript>Your browser does not support JavaScript!</noscript>
 </body>
 </html>
